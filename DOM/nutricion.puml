@@ -1,0 +1,48 @@
+@startuml nu
+title Estructura Conceptual - Nutrición FIT UMB
+
+"Nutrición FIT UMB" -down-> "Encabezado (Head)" : Incluye
+"Encabezado (Head)" -down-> "Meta Información"
+"Encabezado (Head)" -down-> "Estilos (CSS)"
+"Encabezado (Head)" -down-> "Título: Nutrición - FIT UMB"
+
+"Nutrición FIT UMB" -down-> "Cuerpo (Body)" : Contiene
+"Cuerpo (Body)" -down-> "Barra Superior (Top-Bar)" : Contiene
+"Barra Superior (Top-Bar)" -down-> "Logo"
+"Barra Superior (Top-Bar)" -down-> "Botón: Toggle Sidebar"
+
+"Cuerpo (Body)" -down-> "Sidebar (Lateral)" : Contiene
+"Sidebar (Lateral)" -down-> "Perfil de Usuario"
+"Sidebar (Lateral)" -down-> "Links de Navegación" : Incluye
+"Links de Navegación" -down-> "Nutrición"
+"Links de Navegación" -down-> "Entrenamiento"
+"Links de Navegación" -down-> "Cerrar Sesión"
+
+"Cuerpo (Body)" -down-> "Contenido Principal (Main)" : Contiene
+"Contenido Principal (Main)" -down-> "Sección Mi Nutrición" : Contiene
+"Sección Mi Nutrición" -down-> "Estadísticas de Nutrición (Circular Progress)"
+"Estadísticas de Nutrición (Circular Progress)" -down-> "Días de Racha"
+
+"Contenido Principal (Main)" -down-> "Sección Mis Comidas del Día" : Contiene
+"Sección Mis Comidas del Día" -down-> "Desayuno"
+"Desayuno" -down-> "Receta (Tostadas de aguacate)" : Contiene
+"Receta (Tostadas de aguacate)" -down-> "Ingredientes"
+"Receta (Tostadas de aguacate)" -down-> "Instrucciones"
+"Receta (Tostadas de aguacate)" -down-> "Imagen de Comida"
+
+"Sección Mis Comidas del Día" -down-> "Almuerzo"
+"Almuerzo" -down-> "Receta (Ensalada de Pollo)" : Contiene
+"Receta (Ensalada de Pollo)" -down-> "Ingredientes"
+"Receta (Ensalada de Pollo)" -down-> "Instrucciones"
+"Receta (Ensalada de Pollo)" -down-> "Imagen de Comida"
+
+"Sección Mis Comidas del Día" -down-> "Cena"
+"Cena" -down-> "Receta (Salmón al Horno con Verduras)" : Contiene
+"Receta (Salmón al Horno con Verduras)" -down-> "Ingredientes"
+"Receta (Salmón al Horno con Verduras)" -down-> "Instrucciones"
+"Receta (Salmón al Horno con Verduras)" -down-> "Imagen de Comida"
+
+"Cuerpo (Body)" -down-> "Pie de Página (Footer)" : Derechos Reservados
+"Pie de Página (Footer)" -down-> "© 2023 FitUMB. Todos los derechos reservados."
+
+@enduml

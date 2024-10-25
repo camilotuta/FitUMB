@@ -1,0 +1,30 @@
+@startuml ad
+title Estructura Conceptual - Página de Registro FIT UMB
+
+"Página de Registro - FIT UMB" -down-> "Encabezado (Header)" : Contiene
+"Encabezado (Header)" -down-> "Navegación (Nav)" : Contiene
+"Navegación (Nav)" -down-> "Logo" : Imagen del logo de FIT UMB
+"Navegación (Nav)" -down-> "Enlaces de Navegación (Nav Links)"
+"Navegación (Nav)" -down-> "Botones de Autenticación (Auth Buttons)" : Incluye
+"Botones de Autenticación (Auth Buttons)" -down-> "Botón: Registrarme"
+"Botones de Autenticación (Auth Buttons)" -down-> "Botón: Log In"
+
+"Página de Registro - FIT UMB" -down-> "Cuerpo Principal (Main)" : Contiene
+"Cuerpo Principal (Main)" -down-> "Formulario de Registro (Register Form)" : Incluye
+"Formulario de Registro (Register Form)" -down-> "Título: Crea una cuenta"
+"Formulario de Registro (Register Form)" -down-> "Campo: Nombres"
+"Formulario de Registro (Register Form)" -down-> "Campo: Apellidos"
+"Formulario de Registro (Register Form)" -down-> "Campo: Correo Electrónico"
+"Formulario de Registro (Register Form)" -down-> "Campo: Contraseña"
+"Formulario de Registro (Register Form)" -down-> "Campo: Confirmar Contraseña"
+"Formulario de Registro (Register Form)" -down-> "Botón: Registrarme"
+
+"Página de Registro - FIT UMB" -down-> "Script de Redirección (JavaScript)" : Funcionalidad
+"Script de Redirección (JavaScript)" -down-> "Redirección a Página de Registro" 
+"Script de Redirección (JavaScript)" -down-> "Redirección a Página de Login"
+"Script de Redirección (JavaScript)" -down-> "Redirección a Página de Nutrición"
+
+"Página de Registro - FIT UMB" -down-> "Pie de Página (Footer)" : Derechos Reservados
+"Pie de Página (Footer)" -down-> "© 2023 FitUMB. Todos los derechos reservados."
+
+@enduml

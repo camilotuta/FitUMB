@@ -1,0 +1,38 @@
+@startuml home
+title Estructura Conceptual - FIT UMB - Bienestar Integral
+
+"FIT UMB - Bienestar Integral" -down-> "Encabezado (Head)" : Incluye
+"Encabezado (Head)" -down-> "Meta Información"
+"Encabezado (Head)" -down-> "Estilos (CSS)"
+"Encabezado (Head)" -down-> "Título: FIT UMB - Bienestar Integral"
+
+"FIT UMB - Bienestar Integral" -down-> "Cuerpo (Body)" : Contiene
+"Cuerpo (Body)" -down-> "Encabezado (Header)" : Contiene
+"Encabezado (Header)" -down-> "Navegación (Nav)" : Enlaces y Autenticación
+"Navegación (Nav)" -down-> "Enlace Home"
+"Navegación (Nav)" -down-> "Enlace Nutrición"
+"Navegación (Nav)" -down-> "Enlace Entrenamiento"
+"Navegación (Nav)" -down-> "Botón Registrarme"
+"Navegación (Nav)" -down-> "Botón Log In"
+
+"Cuerpo (Body)" -down-> "Contenido Principal (Main)" : Contiene
+"Contenido Principal (Main)" -down-> "Sección Hero" : Bienvenida y CTA
+"Sección Hero" -down-> "Título Bienvenida"
+"Sección Hero" -down-> "Descripción Bienvenida"
+"Sección Hero" -down-> "Botón CTA Registrarme"
+
+"Contenido Principal (Main)" -down-> "Sección Nutrición" : Descripción e Imagen
+"Sección Nutrición" -down-> "Contenido Descriptivo" : Plan Nutricional
+"Sección Nutrición" -down-> "Imagen de Nutrición"
+
+"Contenido Principal (Main)" -down-> "Sección Entrenamiento" : Descripción e Imagen
+"Sección Entrenamiento" -down-> "Imagen de Entrenamiento"
+"Sección Entrenamiento" -down-> "Contenido Descriptivo" : Plan de Entrenamiento
+
+"Contenido Principal (Main)" -down-> "Sección Frase del Día" : Cita Inspiracional
+"Sección Frase del Día" -down-> "Frase Motivacional"
+
+"Cuerpo (Body)" -down-> "Pie de Página (Footer)" : Derechos Reservados
+"Pie de Página (Footer)" -down-> "© 2023 FitUMB. Todos los derechos reservados."
+
+@enduml

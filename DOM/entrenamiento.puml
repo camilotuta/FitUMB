@@ -1,0 +1,42 @@
+@startuml a
+title Estructura Conceptual - Mi Entrenamiento - FIT UMB
+
+"Mi Entrenamiento - FIT UMB" -down-> "Encabezado (Head)" : Incluye
+"Encabezado (Head)" -down-> "Meta Información"
+"Encabezado (Head)" -down-> "Estilos (CSS)"
+"Encabezado (Head)" -down-> "Título: Mi Entrenamiento - FIT UMB"
+
+"Mi Entrenamiento - FIT UMB" -down-> "Cuerpo (Body)" : Contiene
+"Cuerpo (Body)" -down-> "Barra Superior" : Contiene
+"Barra Superior" -down-> "Botón Menú" : ☰
+"Barra Superior" -down-> "Logo"
+
+"Cuerpo (Body)" -down-> "Barra Lateral (Sidebar)" : Incluye
+"Barra Lateral (Sidebar)" -down-> "Perfil Usuario" : Imagen y Nombre
+"Barra Lateral (Sidebar)" -down-> "Navegación" : Enlaces
+"Navegación" -down-> "Nutrición"
+"Navegación" -down-> "Entrenamiento"
+"Navegación" -down-> "Cerrar Sesión"
+
+"Cuerpo (Body)" -down-> "Contenido Principal (Main)" : Contiene
+"Contenido Principal (Main)" -down-> "Sección Progreso" : Visualización de Progreso
+"Sección Progreso" -down-> "Gráfico Circular" : SVG
+
+"Contenido Principal (Main)" -down-> "Próximo Entrenamiento" : Fecha Próxima
+"Próximo Entrenamiento" -down-> "15 de Junio"
+
+"Contenido Principal (Main)" -down-> "Rutina del Día" : Ejercicios Diarios
+"Rutina del Día" -down-> "Ejercicio - Calentamiento" : Descripción y Detalles
+"Rutina del Día" -down-> "Ejercicio - Sentadillas" : Descripción y Detalles
+"Rutina del Día" -down-> "Ejercicio - Flexiones" : Descripción y Detalles
+"Rutina del Día" -down-> "Ejercicio - Plancha" : Descripción y Detalles
+"Rutina del Día" -down-> "Ejercicio - Enfriamiento" : Descripción y Detalles
+
+"Contenido Principal (Main)" -down-> "Calendario de Entrenamiento" : Mes Actual y Navegación
+"Calendario de Entrenamiento" -down-> "Encabezado Calendario" : Botones Navegación Meses
+"Calendario de Entrenamiento" -down-> "Cuerpo del Calendario" : Días de la Semana
+
+"Cuerpo (Body)" -down-> "Pie de Página (Footer)" : Información de Derechos
+"Pie de Página (Footer)" -down-> "© 2023 FitUMB. Todos los derechos reservados."
+
+@enduml
