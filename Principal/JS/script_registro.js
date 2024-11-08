@@ -1,4 +1,4 @@
-// Redireccion a registro
+
 const registerButton = document.querySelector('.register');
 registerButton.addEventListener('click', () => {
     window.location.href = 'registro.html';
@@ -10,11 +10,6 @@ loginButton.addEventListener('click', () => {
     window.location.href = 'login.html';
 });
 
-//Entrada al panel
-// const enterButton = document.querySelector('.submit-btn');
-// enterButton.addEventListener('click', () => {
-//     window.location.href = 'nutricion.html';
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
     const nombresInput = document.getElementById("nombres");
@@ -67,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             apellidosError.textContent = "";
         }
 
-        // Validación de correo electrónico
+        // Validación de correo
         if (!validateEmail(emailInput.value)) {
             emailError.textContent = "Por favor, ingresa un correo válido (ejemplo@dominio.com).";
             isValid = false;
@@ -77,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Validación de contraseña
         if (!validatePassword(passwordInput.value)) {
-            passwordError.textContent = "La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula y un número.";
+            passwordError.textContent = "La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas, números y caracteres especiales.";
             isValid = false;
         } else {
             passwordError.textContent = "";
@@ -93,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirigir si el formulario es válido
         if (isValid) {
-            window.location.href = 'nutricion.html';
+            window.location.href = 'login.html';
         }
     });
 
@@ -102,8 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const namePattern = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
         return namePattern.test(name);
     }
-
-    // Función para validar el correo electrónico
+    // Función para validar el correo
     function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
         return emailPattern.test(email);
@@ -111,8 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para validar la contraseña
     function validatePassword(password) {
-        // La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, y un número
-        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.,_-])[A-Za-z\d@$!%*?&.,_-]{8,}$/;
         return passwordPattern.test(password);
     }
 });
