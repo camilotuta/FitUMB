@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Validación de contraseña
-        if (passwordInput.value.length < 6) {
-            passwordError.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        if (!validatePassword(passwordInput.value)) {
+            passwordError.textContent = "La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas, números y caracteres especiales.";
             isValid = false;
         } else {
             passwordError.textContent = "";
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirigir si el formulario es válido
         if (isValid) {
-            window.location.href = 'nutricion.html';
+            window.location.href = 'entrenamiento.html';
         }
     });
 
@@ -57,4 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
         return emailPattern.test(email);
     }
+
+    // Función para validar la contraseña
+    function validatePassword(password) {
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.,_-])[A-Za-z\d@$!%*?&.,_-]{8,}$/;
+        return passwordPattern.test(password);
+    }
+
 });
