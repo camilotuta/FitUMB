@@ -37,6 +37,6 @@ title Estructura Conceptual - Mi Entrenamiento - FIT UMB
 "Calendario de Entrenamiento" -down-> "Cuerpo del Calendario" : Días de la Semana
 
 "Cuerpo (Body)" -down-> "Pie de Página (Footer)" : Información de Derechos
-"Pie de Página (Footer)" -down-> "© 2023 FitUMB. Todos los derechos reservados."
+"Pie de Página (Footer)" -down-> "© 2024 FitUMB. Todos los derechos reservados."
 
 @enduml
