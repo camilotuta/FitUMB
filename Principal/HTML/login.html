@@ -37,6 +37,33 @@
             flex-direction: column;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            background-image: url('https://previews.123rf.com/images/romastudio/romastudio1603/romastudio160300227/54088696-fondo-de-la-alimentaci%C3%B3n-saludable-foto-del-estudio-de-diferentes-frutas-y-verduras-en-la-mesa-de.jpg'); /* Cambia esto a la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+}
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%; /* Ajusta a 100% del contenedor */
+            height: auto; /* Mantiene la proporción del video */
+            max-width: 800px; /* Establece un ancho máximo */
+            max-height: 450px; /* Establece una altura máxima */
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Mantiene la proporción del video */
+            opacity: 0.935; /* Ajusta la opacidad del video de fondo */
+        }
         header {
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -253,6 +280,10 @@
 </head>
 
 <body>
+    <video autoplay muted loop>
+        <source src="C:\Users\maria\Downloads\videos\corriendo.mp4" type="video/mp4">
+    Tu navegador no soporta el elemento de video.
+    </video>
     <header>
         <nav>
             <a href="home.html">
@@ -286,7 +317,7 @@
     </main>
     <script src="../JS/script_login.js" defer></script>
     <footer>
-        <p>&copy; 2023 FitUMB. Todos los derechos reservados.</p>
+        <p>&copy; 2024 FitUMB. Todos los derechos reservados.</p>
     </footer>
 </body>
 
