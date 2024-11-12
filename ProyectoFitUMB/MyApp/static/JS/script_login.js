@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirigir si el formulario es válido
         if (isValid) {
-            window.location.href = 'entrenamiento.html';
+            window.location.href = 'nutricion/';
         }
     });
 

@@ -286,7 +286,7 @@
 <body>
     <header>
         <nav>
-            <a href="home.html">
+            <a href="{% url 'index' %}">
                 <img src="https://i.ibb.co/YpwCt1v/LOGOOO-1-removebg-preview.png" class="logo">
             </a>
             <ul class="nav-links">
@@ -294,8 +294,15 @@
                 <li><a href="#entrenamiento">Entrenamiento</a></li>
             </ul>
             <div class="auth-buttons">
-                <button class="register">Registrarme</button>
-                <button class="login">Log In</button>
+                <div class="auth-buttons">
+                    <a href="{% url 'registro' %}">
+                        <button class="register">Registrarme</button>
+                    </a>
+                    <a href="{% url 'login' %}">
+                        <button class="login">Log In</button>
+                    </a>
+                </div>
+                
             </div>
         </nav>
     </header>
@@ -306,7 +313,10 @@
             <p>En FitUMB sabemos que el bienestar es integral, por lo cual buscamos articular diferentes áreas de la
                 vida, como lo son la nutrición, el ejercicio y la fisioterapia, para promover una mejor forma de vivir a
                 tu medida!. ¿Qué esperas para empezar un nuevo camino?</p>
-            <a href="#" class="cta-button">Registrarme</a>
+
+            <a href="{% url 'registro' %}">
+                <button class="cta-button">Registrarme</button>
+            </a>
         </section>
 
         <section id="nutricion" class="section">

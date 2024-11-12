@@ -286,12 +286,16 @@
     </video>
     <header>
         <nav>
-            <a href="home.html">
+            <a href="{% url 'index' %}">
                 <img src="https://i.ibb.co/YpwCt1v/LOGOOO-1-removebg-preview.png" class="logo">
             </a>
             <div class="auth-buttons">
-                <button class="register">Registrarme</button>
-                <button class="login">Ingresar</button>
+                <a href="{% url 'registro' %}">
+                    <button class="register">Registrarme</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="login">Log In</button>
+                </a>
             </div>
         </nav>
     </header>
@@ -303,6 +307,7 @@
                 estamos emocionados de acompañarte en este camino. ¡Bienvenido de vuelta a tu espacio de bienestar!</p>
         </div>
         <form class="login-form">
+
             <h1>Iniciar Sesión</h1>
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
@@ -313,8 +318,15 @@
                 <input type="password" id="password" name="password" >
             </div>
             <button type="submit" class="submit-btn">Iniciar Sesión</button>
+                <!--<a href="{% url 'nutricion' %}">
+                    <button class="submit-btn">Iniciar Sesión</button>
+                </a>-->
         </form>
+
     </main>
+            <a href="{% url 'nutricion' %}">
+                <button class="submit-btn">Iniciar Sesión</button>
+            </a>
     <script src="..\static\JS\script_login.js" defer></script>
     <footer>
         <p>&copy; 2024 FitUMB. Todos los derechos reservados.</p>

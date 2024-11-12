@@ -258,15 +258,19 @@
 <body>
     <header>
         <nav>
-            <a href="home.html">
+            <a href="{% url 'index' %}">
                 <img src="https://i.ibb.co/YpwCt1v/LOGOOO-1-removebg-preview.png" class="logo">
             </a>
             <ul class="nav-links">
                 <li><a></a></li>
             </ul>
             <div class="auth-buttons">
-                <button class="register">Registrarme</button>
-                <button class="login">Ingresar</button>
+                <a href="{% url 'registro' %}">
+                    <button class="register">Registrarme</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="login">Log In</button>
+                </a>
             </div>
         </nav>
     </header>

@@ -377,9 +377,9 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="nutricion.html">Nutrición</a></li>
-                <li><a href="entrenamiento.html" class="active">Entrenamiento</a></li>
-                <li class="logout"><a href="home.html">Cerrar Sesión</a></li>
+                <li><a href="{% url 'nutricion' %}">Nutricion</button></a></li>
+                <li><a href="{% url 'entrenamiento' %}">Entrenamiento</button></a></li>
+                <li></li><a href="{% url 'index' %}">Cerrar sesión</button></a><li>
             </ul>
         </nav>
     </aside>
