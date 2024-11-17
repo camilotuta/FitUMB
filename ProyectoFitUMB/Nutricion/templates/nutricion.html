@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -309,7 +310,7 @@
                         stroke-dasharray="408" stroke-dashoffset="272" />
                 </svg>
                 <div class="inner">
-                    <span class="number">1/3</span>
+                    <span class="number">2/3</span>
                     <span class="label">Comidas Completadas</span>
                 </div>
             </div>
@@ -436,7 +437,7 @@
     <footer>
         <p>&copy; 2024 FitUMB. Todos los derechos reservados.</p>
     </footer>
-    <script src="..\static\JS\script_nutricion.js"></script>
+    <script src="{% static 'JS\script_nutricion.js' %}" defer></script>
 </body>
 
 </html>
