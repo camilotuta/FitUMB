@@ -11,9 +11,4 @@ def registro(request):
 def login(request):
     return render(request,'login.html')
 
-def nutricion(request):
-    return render(request,'nutricion.html')
-
-def entrenamiento(request):
-    return render(request,'entrenamiento.html')
 

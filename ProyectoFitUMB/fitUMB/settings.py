@@ -55,7 +55,11 @@ ROOT_URLCONF = 'fitUMB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'MyApp/templates'],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'Usuario/templates'),
+            os.path.join(BASE_DIR, 'Nutricion/templates'),
+            os.path.join(BASE_DIR, 'Entrenamiento/templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,7 +124,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "myapp/static"),
+    os.path.join(BASE_DIR, "Usuario/static"),
+    os.path.join(BASE_DIR, "Nutricion/static"),
+    os.path.join(BASE_DIR, "Entrenamiento/static"),
 ]
 
 
