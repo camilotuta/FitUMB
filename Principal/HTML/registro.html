@@ -239,19 +239,21 @@
                 width: 90%;
             }
         }
-            
+
         body {
-             font-family: 'Poppins', sans-serif;
-             line-height: 1.6;
-             color: var(--text-color);
-             background-image: url('https://gnd-content.dev/blog/wp-content/uploads/2022/02/Estilos-de-vida-saludable-la-importancia-para-nuestra-salud-1-1024x683.jpeg'); 
-             background-size: cover;
-             background-position: center; /* Centra la imagen */
-             background-attachment: fixed; /* Fija la imagen al fondo */
-             min-height: 100vh;
-             display: flex;
-             flex-direction: column;
-    }    
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-image: url('https://gnd-content.dev/blog/wp-content/uploads/2022/02/Estilos-de-vida-saludable-la-importancia-para-nuestra-salud-1-1024x683.jpeg');
+            background-size: cover;
+            background-position: center;
+            /* Centra la imagen */
+            background-attachment: fixed;
+            /* Fija la imagen al fondo */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 
@@ -299,16 +301,6 @@
                 <label for="email">Correo electrónico</label>
                 <div style="display: flex; align-items: center;" id="email-div">
                     <input type="text" id="email" name="email" required style="flex: 1; margin-right: 10px;">
-                    <button type="button" class="verify-btn" id="btn-enviar-codigo">Enviar Codigo
-                        Verificacion</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="codigo-verificacion">Código verificación</label>
-                <div style="display: flex; align-items: center;" id="codigo-verificacion-div">
-                    <input type="text" id="codigo-verificacion" name="codigo-verificacion" required
-                        style="flex: 1; margin-right: 10px;">
-                    <button type="button" class="verify-btn" id="btn-verificar-codigo">Verificar</button>
                 </div>
             </div>
             <div class="form-group">
@@ -322,7 +314,7 @@
             <button type="submit" class="submit-btn">Registrarme</button>
         </form>
     </main>
-    <script src="../JS/script_registro.js" ></script>
+    <script src="../JS/script_registro.js"></script>
 
 
     <footer>

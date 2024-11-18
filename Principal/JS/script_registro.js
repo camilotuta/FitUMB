@@ -1,6 +1,4 @@
-// cSpell:ignore codigo redireccion verificacion ÁÉÍÓ Úáéíóú vprm xbsn
-import emailjs from "../@emailjs/browser";
-
+//cSpell:ignore igno redirección ÁÉÍÓ Úáéíóú
 // Botones de redirección
 const registerButton = document.querySelector(".register");
 registerButton.addEventListener("click", () => {
@@ -21,103 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirm-password");
   const objetivoSelect = document.getElementById("objetivo");
-  const codigoVerificacionInput = document.getElementById(
-    "codigo-verificacion"
-  );
-  const codigoVerificacionDiv = document.getElementById(
-    "codigo-verificacion-div"
-  );
   const submitButton = document.querySelector(".submit-btn");
   const form = document.querySelector(".register-form");
-  const enviarCodigoButton = document.getElementById("btn-enviar-codigo");
-  const verificarCodigoButton = document.getElementById("btn-verificar-codigo");
-
-  let verificationCode = "";
-
-  // Inicializar emailjs con manejo de errores
-  emailjs
-    .init({
-      publicKey: "vzW7xbsnXJCwSe8_6", // Reemplaza con tu Public Key real
-      blockHeadless: false,
-      limitRate: {
-        throttle: 10000, // 10s entre envíos
-      },
-    })
-    .then(function () {
-      console.log("EmailJS inicializado correctamente");
-    })
-    .catch(function (error) {
-      console.error("Error al inicializar EmailJS:", error);
-    });
-
-  // Genera un código aleatorio de 6 dígitos
-  function generateVerificationCode() {
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  }
-
-  // Función mejorada para enviar el correo de verificación
-  function enviarCorreo(codigo) {
-    console.log("Iniciando envío de correo...");
-
-    emailjs.send("service_lgnkush", "template_13qu4es", {
-      to_name: nombresInput.value + " " + apellidosInput.value,
-      from_name: "Correo de verificación FitUMB",
-      message: codigo,
-    });
-  }
-
-  // Envía el código de verificación por correo electrónico
-  enviarCodigoButton.addEventListener("click", () => {
-    if (validateEmail(emailInput.value)) {
-      verificationCode = generateVerificationCode();
-      console.log("Código generado:", verificationCode);
-      enviarCorreo(verificationCode);
-    } else {
-      alert("Por favor, ingresa un correo electrónico válido.");
-    }
-  });
-
-  // Verifica el código ingresado por el usuario
-  verificarCodigoButton.addEventListener("click", () => {
-    if (codigoVerificacionInput.value === verificationCode) {
-      alert("Código verificado correctamente.");
-      codigoVerificacionInput.setCustomValidity("");
-      submitButton.disabled = false; // Habilita el botón de envío
-    } else {
-      alert("Código incorrecto. Por favor, inténtalo de nuevo.");
-      codigoVerificacionInput.setCustomValidity("Código incorrecto.");
-      submitButton.disabled = true; // Mantiene el botón deshabilitado
-    }
-  });
 
   // Crear contenedores de mensajes de error
-  const nombresError = document.createElement("p");
-  nombresError.className = "error-message";
-  nombresInput.parentNode.appendChild(nombresError);
-
-  const apellidosError = document.createElement("p");
-  apellidosError.className = "error-message";
-  apellidosInput.parentNode.appendChild(apellidosError);
-
-  const emailError = document.createElement("p");
-  emailError.className = "error-message";
-  emailDiv.parentNode.appendChild(emailError);
-
-  const passwordError = document.createElement("p");
-  passwordError.className = "error-message";
-  passwordInput.parentNode.appendChild(passwordError);
-
-  const confirmPasswordError = document.createElement("p");
-  confirmPasswordError.className = "error-message";
-  confirmPasswordInput.parentNode.appendChild(confirmPasswordError);
-
-  const objetivoError = document.createElement("p");
-  objetivoError.className = "error-message";
-  objetivoSelect.parentNode.appendChild(objetivoError);
-
-  const codigoVerificacionError = document.createElement("p");
-  codigoVerificacionError.className = "error-message";
-  codigoVerificacionDiv.parentNode.appendChild(codigoVerificacionError);
+  const nombresError = crearError(nombresInput);
+  const apellidosError = crearError(apellidosInput);
+  const emailError = crearError(emailDiv);
+  const passwordError = crearError(passwordInput);
+  const confirmPasswordError = crearError(confirmPasswordInput);
+  const objetivoError = crearError(objetivoSelect);
 
   // Evento de envío del formulario
   form.addEventListener("submit", (event) => {
@@ -174,18 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
       objetivoError.textContent = "";
     }
 
-    // Validación de código de verificación
-    if (codigoVerificacionInput.value !== verificationCode) {
-      codigoVerificacionError.textContent =
-        "Por favor, verifica el código enviado a tu correo.";
-      isValid = false;
-    } else {
-      codigoVerificacionError.textContent = "";
-    }
-
     // Redirigir si el formulario es válido
     if (isValid) {
-      // Aquí podrías agregar el código para guardar los datos del usuario
       alert("Registro exitoso!");
       window.location.href = "login.html";
     }
@@ -212,6 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return objetivo !== "seleccionar";
   }
 
-  // Deshabilitar el botón de envío inicialmente
-  submitButton.disabled = true;
+  // Función para crear contenedores de mensajes de error
+  function crearError(elemento) {
+    const errorElement = document.createElement("p");
+    errorElement.className = "error-message";
+    elemento.parentNode.appendChild(errorElement);
+    return errorElement;
+  }
 });
