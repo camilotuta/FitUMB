@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Redirigir si el formulario es válido
     if (isValid) {
       alert("Registro exitoso!");
-      window.location.href = "login/";
+      window.location.href = "/login/";
     }
   });
 
