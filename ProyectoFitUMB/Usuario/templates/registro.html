@@ -304,16 +304,6 @@
                 <label for="email">Correo electrónico</label>
                 <div style="display: flex; align-items: center;" id="email-div">
                     <input type="text" id="email" name="email" required style="flex: 1; margin-right: 10px;">
-                    <button type="button" class="verify-btn" id="btn-enviar-codigo">Enviar Codigo
-                        Verificacion</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="codigo-verificacion">Código verificación</label>
-                <div style="display: flex; align-items: center;" id="codigo-verificacion-div">
-                    <input type="text" id="codigo-verificacion" name="codigo-verificacion" required
-                        style="flex: 1; margin-right: 10px;">
-                    <button type="button" class="verify-btn" id="btn-verificar-codigo">Verificar</button>
                 </div>
             </div>
             <div class="form-group">
@@ -327,10 +317,10 @@
             <button type="submit" class="submit-btn">Registrarme</button>
         </form>
     </main>
-            <a href="{% url 'nutricion' %}">
+            <a href="{% url 'login' %}">
                 <button class="submit-btn">Registrarme</button>
             </a>
-    <script src="{% static 'JS\script_registro.js' %}" type="module" defer></script>
+    <script src="{% static 'JS\script_registro.js' %}" defer></script>
 
 
     <footer>
