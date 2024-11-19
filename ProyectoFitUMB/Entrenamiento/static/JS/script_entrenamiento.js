@@ -47,7 +47,7 @@ function generateCalendar(year, month) {
                 let className = '';
                 if (date === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
                     className = 'today';
-                } else if ((j === 2 || j === 5) && date <= daysInMonth) { // Martes y Viernes
+                } else if ((j === 1 || j === 3) && date <= daysInMonth) { // Martes y Viernes
                     className = 'training-day';
                 }
                 row += `<td><div class="${className}">${date}</div></td>`;
@@ -74,4 +74,89 @@ prevMonthButton.addEventListener('click', () => {
 nextMonthButton.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+});
+  
+document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll(".checkbox-wrapper input[type='checkbox']");
+    const completedMealsCounter = document.querySelector(".number");
+    const progressCircle = document.querySelector(".circular-progress circle:nth-child(2)");
+    const streakText = document.querySelector(".streak");
+
+    const totalMeals = checkboxes.length;
+    const circleRadius = 65; // Radio del círculo
+    const circumference = 2 * Math.PI * circleRadius; // Circunferencia del círculo
+
+    // Configura la circunferencia inicial del círculo
+    progressCircle.style.strokeDasharray = `${circumference}`;
+    progressCircle.style.strokeDashoffset = `${circumference}`;
+
+    let streakDays = 0; // Contador de días de racha
+
+    const updateProgress = () => {
+        const completedMeals = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+        // Actualiza el contador de ejercicios completados
+        completedMealsCounter.textContent = `${completedMeals}/${totalMeals}`;
+
+        // Calcula el desplazamiento de la barra de progreso
+        const offset = circumference - (completedMeals / totalMeals) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+
+        // Verifica si todas los ejercicios están completados
+        if (completedMeals === totalMeals) {
+            updateStreak();
+        }
+    };
+
+    const updateStreak = () => {
+        const targetStreak = streakDays + 1; // Incrementa el objetivo en 1
+        const interval = setInterval(() => {
+            if (streakDays < targetStreak) {
+                streakDays++;
+                streakText.textContent = `¡Llevas una racha de ${streakDays} días!`;
+            } else {
+                clearInterval(interval); // Detén la animación cuando llegue al objetivo
+            }
+        }, 100); // Ajusta la velocidad de la animación
+    };
+
+    // Añade el evento de cambio a cada checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", updateProgress);
+    });
+
+    // Inicializa el progreso al cargar la página
+    updateProgress();
+});
+  
+document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const nextTrainingDateElement = document.querySelector(".next-training-date");
+    
+    // Define una fecha inicial
+    let nextTrainingDate = new Date(2024, 10, 18); // Mes en JavaScript empieza desde 0 (5 = Junio)
+
+    // Muestra la fecha en el formato correcto
+    function updateNextTrainingDate() {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        nextTrainingDateElement.textContent = nextTrainingDate.toLocaleDateString('es-ES', options);
+    }
+
+    // Escucha cambios en los checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+            const allChecked = [...checkboxes].every(chk => chk.checked);
+
+            if (allChecked) {
+                nextTrainingDate.setDate(nextTrainingDate.getDate() + 2); // Sumar un día
+                updateNextTrainingDate();
+                
+                // Reinicia los checkbox
+                checkboxes.forEach(chk => chk.checked = true);
+            }
+        });
+    });
+
+    // Inicializa la fecha
+    updateNextTrainingDate();
 });
