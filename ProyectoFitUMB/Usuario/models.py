@@ -2,7 +2,6 @@ from django.db import models
 from Entrenamiento.models import RUTINAS
 from Nutricion.models import RECETAS
 
-# Crear clases :D
 class USUARIOS(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
@@ -16,6 +15,10 @@ class USUARIOS(models.Model):
     receta_almuerzo = models.ForeignKey(RECETAS, on_delete=models.CASCADE, related_name='Almuerzo')
     receta_cena = models.ForeignKey(RECETAS, on_delete=models.CASCADE, related_name='Cena')
 
+    def __str__(self):
+        nombre = "({0}) {1}"
+        return nombre.format(self.id, self.nombre)
+
 class PROGRESOS_NUTRICION(models.Model):
     usuario_id = models.ForeignKey(USUARIOS, on_delete=models.CASCADE)
     fecha = models.DateField()
@@ -24,6 +27,10 @@ class PROGRESOS_NUTRICION(models.Model):
     status_cena = models.BooleanField(default=False)
     dia_completado = models.BooleanField(default=False)
     fecha_ult_actualizacion = models.DateField()
+
+    def __str__(self):
+        nombre = "({0}) {1}"
+        return nombre.format(self.id, self.usuario_id)
 
 class PROGRESOS_ENTRENAMIENTO (models.Model):
     usuario_id = models.ForeignKey(USUARIOS, on_delete=models.CASCADE)
@@ -34,3 +41,7 @@ class PROGRESOS_ENTRENAMIENTO (models.Model):
     rutina_3 = models.BooleanField(default=False)
     semana_completada = models.BooleanField(default=False)
     fecha_ult_actualizacion = models.DateField()
+
+    def __str__(self):
+        nombre = "({0}) {1}"
+        return nombre.format(self.id, self.usuario_id)
