@@ -47,7 +47,7 @@ function generateCalendar(year, month) {
                 let className = '';
                 if (date === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
                     className = 'today';
-                } else if ((j === 1 || j === 3) && date <= daysInMonth) { // Martes y Viernes
+                } else if ((j === 2 || j === 4) && date <= daysInMonth) { // Martes y Jueves
                     className = 'training-day';
                 }
                 row += `<td><div class="${className}">${date}</div></td>`;
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextTrainingDateElement = document.querySelector(".next-training-date");
     
     // Define una fecha inicial
-    let nextTrainingDate = new Date(2024, 10, 18); // Mes en JavaScript empieza desde 0 (5 = Junio)
+    let nextTrainingDate = new Date(2024, 10, 19); // Mes en JavaScript empieza desde 0 (5 = Junio)
 
     // Muestra la fecha en el formato correcto
     function updateNextTrainingDate() {
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const allChecked = [...checkboxes].every(chk => chk.checked);
 
             if (allChecked) {
-                nextTrainingDate.setDate(nextTrainingDate.getDate() + 2); // Sumar un día
+                nextTrainingDate.setDate(nextTrainingDate.getDate() + 2); // Sumar dos dias
                 updateNextTrainingDate();
                 
                 // Reinicia los checkbox
